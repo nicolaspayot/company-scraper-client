@@ -1,13 +1,27 @@
 <template>
   <div class="search-input">
     <i class="fas fa-search"></i>
-    <input class="search-input__input" type="search" placeholder="Company name" />
+    <input
+      class="search-input__input"
+      type="search"
+      placeholder="Company name"
+      :value="value"
+      @input="$emit('input', $event.target.value)"
+      @keydown.enter="$emit('enter')"
+    />
+    <div class="search-input__info">
+      First, we will return lists of the company's pages URLs from <strong>linkedin.com</strong> and
+      <strong>societe.com</strong>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'SearchInput',
+  props: {
+    value: String,
+  },
 };
 </script>
 
@@ -49,5 +63,10 @@ export default {
   &::placeholder {
     opacity: 0.5;
   }
+}
+
+.search-input__info {
+  font-size: rem(14px);
+  margin-top: 10px;
 }
 </style>

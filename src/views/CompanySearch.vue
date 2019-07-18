@@ -1,25 +1,45 @@
 <template>
-  <Card :title="'Enter a company name'" :button-label="'Search'" @submit="next()">
-    <SearchInput />
-    <SearchSources />
+  <Card :title="'Enter a company name'" :button-label="'Search'" @submit="searchCompanyURLs">
+    <SearchInput v-model="company" @enter="searchCompanyURLs" />
   </Card>
 </template>
 
 <script>
+import { mapState } from 'vuex';
+import { SEARCH_COMPANY_URLS } from '../store/actions';
 import Card from '../components/Card.vue';
 import SearchInput from '../components/search/SearchInput.vue';
-import SearchSources from '../components/search/SearchSources.vue';
 
 export default {
   name: 'CompanySearch',
   components: {
     Card,
     SearchInput,
-    SearchSources,
+  },
+  data() {
+    return {
+      company: this.query,
+    };
+  },
+  computed: {
+    ...mapState(['query', 'loading']),
   },
   methods: {
-    next() {
-      this.$router.push({ name: 'CompanySelection' });
+    async searchCompanyURLs() {
+      if (this.loading) {
+        return;
+      }
+      this.$store.dispatch(SEARCH_COMPANY_URLS, {
+        query: this.company.trim(),
+      });
+    },
+  },
+  watch: {
+    query: {
+      immediate: true,
+      handler(query) {
+        this.company = query;
+      },
     },
   },
 };

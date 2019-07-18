@@ -12,16 +12,16 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 export default {
   name: 'Card',
   props: {
     title: String,
     buttonLabel: String,
   },
-  data() {
-    return {
-      loading: false,
-    };
+  computed: {
+    ...mapState(['loading']),
   },
   methods: {
     onSubmit() {
