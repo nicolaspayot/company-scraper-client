@@ -1,0 +1,16 @@
+html,
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+body {
+  background-image: url('../img/background.svg');
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

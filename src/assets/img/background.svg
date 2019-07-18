@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1440px" height="166px" viewBox="0 0 1440 166" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>SubNavigation / Empty</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="100%" y1="49.3355517%" x2="0%" y2="50.6644483%" id="linearGradient-1">
+            <stop stop-color="#0099FF" offset="0%"></stop>
+            <stop stop-color="#0072F0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="57.4415728%" x2="100%" y2="42.5584272%" id="linearGradient-2">
+            <stop stop-color="#0080FF" offset="0%"></stop>
+            <stop stop-color="#0072F0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="38.2101974%" y1="55.8758434%" x2="99.1862862%" y2="51.2877959%" id="linearGradient-3">
+            <stop stop-color="#0073E4" offset="0%"></stop>
+            <stop stop-color="#008EFB" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="SubNavigation-/-Empty">
+            <rect id="Rectangle" fill="url(#linearGradient-1)" x="0" y="0" width="1440" height="166"></rect>
+            <g id="SubNavigation">
+                <g id="Background">
+                    <polygon id="Rectangle-Copy" fill="url(#linearGradient-2)" points="455.456682 222 1440 122 1440 402 455 502"></polygon>
+                    <polygon id="Rectangle-Copy" fill="url(#linearGradient-3)" points="0.456682106 -142 985 -242 985 38 0 138"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
