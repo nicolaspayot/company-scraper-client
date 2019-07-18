@@ -1,7 +1,7 @@
 <template>
   <div class="search-input">
     <i class="fas fa-search"></i>
-    <input class="search-input__input" placeholder="Company name" />
+    <input class="search-input__input" type="search" placeholder="Company name" />
   </div>
 </template>
 
@@ -26,6 +26,8 @@ export default {
 }
 
 .search-input__input {
+  // Safari does not apply style to search field 🤷‍
+  -webkit-appearance: textfield;
   width: 100%;
   font-weight: 500;
   display: block;
@@ -38,5 +40,14 @@ export default {
   padding-left: 40px;
   border-radius: 5px;
   box-sizing: border-box;
+  color: $primary-text-color;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder {
+    opacity: 0.5;
+  }
 }
 </style>

@@ -3,16 +3,16 @@
     <div class="tabs__label">
       Select the URL·s that you think match best with your search (1 per source)
     </div>
-    <div class="tabs-urls">
-      <div class="tabs-urls__tab">
+    <nav class="tabs-urls">
+      <a class="tabs-urls__tab">
         <div class="tab__title">linkedin.com</div>
         <div class="tab__state tab__state--checked"></div>
-      </div>
-      <div class="tabs-urls__tab">
+      </a>
+      <a class="tabs-urls__tab">
         <div class="tab__title">societe.com</div>
         <div class="tab__state"></div>
-      </div>
-    </div>
+      </a>
+    </nav>
   </div>
 </template>
 
@@ -37,6 +37,12 @@ export default {
 
 .tabs-urls__tab {
   margin-right: 20px;
+
+  &:hover > .tab__state {
+    &:not(.tab__state--checked) {
+      background: $border-color;
+    }
+  }
 }
 
 .tab__title {

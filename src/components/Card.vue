@@ -5,7 +5,8 @@
       <slot />
     </section>
     <div class="card-action">
-      <button class="card-action__button" @click="onSubmit()">{{ buttonLabel }}</button>
+      <button class="card-action__button" v-if="!loading" @click="onSubmit()">{{ buttonLabel }}</button>
+      <img class="card-action__loader" v-else src="~@/assets/img/loader.svg" />
     </div>
   </article>
 </template>
@@ -16,6 +17,11 @@ export default {
   props: {
     title: String,
     buttonLabel: String,
+  },
+  data() {
+    return {
+      loading: false,
+    };
   },
   methods: {
     onSubmit() {
@@ -55,9 +61,11 @@ export default {
   align-items: center;
   justify-content: center;
   margin-top: 50px;
+  padding-bottom: 20px;
 }
 
 .card-action__button {
+  cursor: pointer;
   background-color: $input-color;
   color: $button-text-color;
   border-radius: 4px;
@@ -67,6 +75,23 @@ export default {
   font-weight: bold;
   font-size: rem(14px);
   line-height: 16px;
-  margin-bottom: 20px;
+
+  &:hover:not([disabled]) {
+    background-color: $button-hover-color;
+    border-color: $button-hover-color;
+  }
+
+  &:focus:not([disabled]) {
+    outline: none;
+  }
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.4;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
 }
 </style>
