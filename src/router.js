@@ -23,5 +23,10 @@ export default new Router({
       name: 'CompanyResult',
       component: () => import('./views/CompanyResult.vue'),
     },
+    {
+      path: '/error',
+      name: 'CompanyError',
+      component: () => import('./views/CompanyError.vue'),
+    },
   ],
 });
