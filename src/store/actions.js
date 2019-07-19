@@ -14,7 +14,8 @@ export default {
       commit(UPDATE_COMPANY_URLS, { companyURLs: { ...data } });
       router.push({ name: 'CompanySelection' });
     } catch (error) {
-      commit(ERROR, { error });
+      commit(ERROR, { error: error.response.data });
+      router.push({ name: 'CompanyError' });
     }
   },
 };

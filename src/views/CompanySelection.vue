@@ -1,5 +1,5 @@
 <template>
-  <Card :title="'Select company URL·s'" :button-label="'Scrap data'" @submit="next()">
+  <Card :title="'Select company URL·s'" :button-title="'Scrap data'" @submit="next()">
     <SelectionTabs />
     <SelectionItem />
   </Card>

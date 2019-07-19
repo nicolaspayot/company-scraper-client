@@ -5,7 +5,9 @@
       <slot />
     </section>
     <div class="card-action">
-      <button class="card-action__button" v-if="!loading" @click="onSubmit()">{{ buttonLabel }}</button>
+      <button class="card-action__button" v-if="!loading" :disabled="buttonDisabled" @click="onSubmit()">
+        {{ buttonTitle }}
+      </button>
       <img class="card-action__loader" v-else src="~@/assets/img/loader.svg" />
     </div>
   </article>
@@ -18,7 +20,8 @@ export default {
   name: 'Card',
   props: {
     title: String,
-    buttonLabel: String,
+    buttonTitle: String,
+    buttonDisabled: Boolean,
   },
   computed: {
     ...mapState(['loading']),

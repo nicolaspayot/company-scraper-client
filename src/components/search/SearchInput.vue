@@ -3,11 +3,12 @@
     <i class="fas fa-search"></i>
     <input
       class="search-input__input"
+      ref="searchInput"
       type="search"
       placeholder="Company name"
       :value="value"
-      @input="$emit('input', $event.target.value)"
-      @keydown.enter="$emit('enter')"
+      @input="onInput($event)"
+      @keydown.enter="onEnter()"
     />
     <div class="search-input__info">
       First, we will return lists of the company's pages URLs from <strong>linkedin.com</strong> and
@@ -21,6 +22,18 @@ export default {
   name: 'SearchInput',
   props: {
     value: String,
+  },
+  methods: {
+    onInput($event) {
+      this.$emit('input', $event.target.value);
+    },
+
+    onEnter() {
+      this.$emit('enter');
+    },
+  },
+  mounted() {
+    this.$refs.searchInput.focus();
   },
 };
 </script>

@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+import store from './store';
 import CompanySearch from './views/CompanySearch.vue';
 
 Vue.use(Router);
@@ -27,6 +28,13 @@ export default new Router({
       path: '/error',
       name: 'CompanyError',
       component: () => import('./views/CompanyError.vue'),
+      beforeEnter(to, from, next) {
+        if (store.state.error) {
+          next();
+        } else {
+          next({ name: 'CompanySearch' });
+        }
+      },
     },
   ],
 });

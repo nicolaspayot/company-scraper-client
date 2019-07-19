@@ -1,5 +1,10 @@
 <template>
-  <Card :title="'Enter a company name'" :button-label="'Search'" @submit="searchCompanyURLs">
+  <Card
+    :title="'Enter a company name'"
+    :button-title="'Search'"
+    :button-disabled="!company"
+    @submit="searchCompanyURLs"
+  >
     <SearchInput v-model="company" @enter="searchCompanyURLs" />
   </Card>
 </template>
@@ -26,7 +31,7 @@ export default {
   },
   methods: {
     async searchCompanyURLs() {
-      if (this.loading) {
+      if (!this.company || this.loading) {
         return;
       }
       this.$store.dispatch(SEARCH_COMPANY_URLS, {
