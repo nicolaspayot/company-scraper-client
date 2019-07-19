@@ -1,6 +1,11 @@
 <template>
   <article class="card">
-    <h1 class="card__title">{{ title }}</h1>
+    <header class="card-header">
+      <router-link v-if="backLinkVisible" :to="{ name: 'CompanySearch' }" class="card-header__link">
+        <i class="fas fa-chevron-left"></i>New search
+      </router-link>
+      <h1 class="card-header__title">{{ title }}</h1>
+    </header>
     <section class="card-content">
       <slot />
     </section>
@@ -19,6 +24,7 @@ import { mapState } from 'vuex';
 export default {
   name: 'Card',
   props: {
+    backLinkVisible: Boolean,
     title: String,
     buttonTitle: String,
     buttonDisabled: Boolean,
@@ -28,6 +34,9 @@ export default {
   },
   methods: {
     onSubmit() {
+      if (this.buttonDisabled) {
+        return;
+      }
       this.$emit('submit');
     },
   },
@@ -48,7 +57,28 @@ export default {
   padding: 25px;
 }
 
-.card__title {
+.card-header {
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+}
+
+.card-header__link {
+  cursor: pointer;
+  text-decoration: none;
+  position: absolute;
+  left: 0;
+  color: $input-color;
+  font-weight: 500;
+  line-height: 1.8;
+
+  .fa-chevron-left {
+    margin-right: 10px;
+  }
+}
+
+.card-header__title {
   font-size: rem(26px);
   font-weight: 500;
   line-height: 1.5;

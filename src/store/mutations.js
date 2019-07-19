@@ -1,6 +1,8 @@
 export const UPDATE_QUERY = 'UPDATE_QUERY';
 export const START_LOADING = 'START_LOADING';
 export const UPDATE_COMPANY_URLS = 'UPDATE_COMPANY_URLS';
+export const SELECT_COMPANY_URL = 'SELECT_COMPANY_URL';
+export const UPDATE_COMPANY = 'UPDATE_COMPANY';
 export const ERROR = 'ERROR';
 
 export default {
@@ -15,6 +17,16 @@ export default {
 
   [UPDATE_COMPANY_URLS](state, { companyURLs }) {
     state.companyURLs = companyURLs;
+    state.candidates = {};
+    state.loading = false;
+  },
+
+  [SELECT_COMPANY_URL](state, { source, index }) {
+    state.candidates = { ...state.candidates, [source]: state.companyURLs[source][index].link };
+  },
+
+  [UPDATE_COMPANY](state, { company }) {
+    state.company = company;
     state.loading = false;
   },
 

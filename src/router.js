@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+import isEmpty from 'lodash/isEmpty';
 import store from './store';
 import CompanySearch from './views/CompanySearch.vue';
 
@@ -18,6 +19,13 @@ export default new Router({
       path: '/selection',
       name: 'CompanySelection',
       component: () => import('./views/CompanySelection.vue'),
+      beforeEnter(to, from, next) {
+        if (!isEmpty(store.state.companyURLs)) {
+          next();
+        } else {
+          next({ name: 'CompanySearch' });
+        }
+      },
     },
     {
       path: '/result',

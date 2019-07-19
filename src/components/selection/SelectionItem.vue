@@ -1,9 +1,9 @@
 <template>
   <div class="selection-item">
-    <input type="radio" id="test1" name="radio-group" checked />
-    <label for="test1">
-      <div class="selection-item__title">Dawex - Data Exchange Technology | LinkedIn</div>
-      <div class="selection-item__url">https://www.linkedin.com/company/dawex</div>
+    <input type="radio" :id="id" :name="`${source}`" @change="onChange()" />
+    <label :for="id">
+      <div class="selection-item__title">{{ url.title }}</div>
+      <div class="selection-item__url">{{ url.link }}</div>
     </label>
   </div>
 </template>
@@ -11,10 +11,29 @@
 <script>
 export default {
   name: 'SelectionItem',
+  props: {
+    index: Number,
+    source: String,
+    url: Object,
+  },
+  computed: {
+    id() {
+      return `${this.source}-${this.index}`;
+    },
+  },
+  methods: {
+    onChange() {
+      this.$emit('checked', { source: this.source, index: this.index });
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
+label {
+  width: 90%;
+}
+
 [type='radio']:checked,
 [type='radio']:not(:checked) {
   position: absolute;
@@ -78,12 +97,20 @@ export default {
   cursor: pointer;
 }
 
+%selection-item-row {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .selection-item__title {
+  @extend %selection-item-row;
   margin-top: -10px;
   font-weight: 500;
 }
 
 .selection-item__url {
+  @extend %selection-item-row;
   font-size: rem(14px);
   font-weight: 300;
 }
