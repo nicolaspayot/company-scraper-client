@@ -31,6 +31,13 @@ export default new Router({
       path: '/result',
       name: 'CompanyResult',
       component: () => import('./views/CompanyResult.vue'),
+      beforeEnter(to, from, next) {
+        if (!isEmpty(store.state.company)) {
+          next();
+        } else {
+          next({ name: 'CompanySearch' });
+        }
+      },
     },
     {
       path: '/error',

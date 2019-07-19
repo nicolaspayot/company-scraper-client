@@ -1,16 +1,14 @@
 <template>
   <div class="result-main">
-    <img
-      class="result-main__logo"
-      src="https://media.licdn.com/dms/image/C510BAQHjjsABY6_X7A/company-logo_400_400/0?e=1571270400&v=beta&t=tKLXXADWvItfg2GY5nferIBXCIRFE_yqMSNGB5iKSBQ"
-    />
+    <img class="result-main__logo" v-if="company.logoURL" :src="company.logoURL" />
+    <img class="result-main__logo" v-else src="~@/assets/img/building.svg" />
     <div class="result-main-info">
-      <h2 class="info__name">Dawex - Data Exchange Technology</h2>
-      <h3 class="info__id">(DAWEX SYSTEMS)</h3>
-      <div class="info__industry">Information Technology and Services</div>
-      <div class="info-adress">
+      <h2 class="info__name" v-if="company.publicName">{{ company.publicName }}</h2>
+      <h3 class="info__id" v-if="company.name">{{ company.name }}</h3>
+      <div class="info__industry" v-if="company.industry">{{ company.industry }}</div>
+      <div class="info-adress" v-if="company.address">
         <i class="fas fa-map-marker-alt"></i>
-        <span class="info-adress__label">20 PL LOUIS PRADEL 69001 LYON</span>
+        <span class="info-adress__label">{{ company.address }}</span>
       </div>
     </div>
   </div>
@@ -19,6 +17,9 @@
 <script>
 export default {
   name: 'ResultMain',
+  props: {
+    company: Object,
+  },
 };
 </script>
 

@@ -4,7 +4,7 @@
     :title="'Select company URLs'"
     :button-title="'Scrap data'"
     :button-disabled="isCandidatesEmpty"
-    @submit="next()"
+    @submit="scrapCompanyData()"
   >
     <SelectionTabs @change="onTabChange($event)" />
     <section v-show="tabIndex === 0">
@@ -62,7 +62,7 @@ export default {
       this.$store.commit(SELECT_COMPANY_URL, { source, index });
     },
 
-    next() {
+    scrapCompanyData() {
       this.$store.dispatch(SCRAP_COMPANY_DATA);
     },
   },
