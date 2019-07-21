@@ -4,11 +4,11 @@
       Select the URLs that you think match best with your search (1 per source)
     </div>
     <nav class="tabs-urls">
-      <a class="tabs-urls__tab" @click="onClick(0)">
+      <a class="tabs-urls__tab" v-if="companyURLs.linkedin.length > 0" @click="onClick(0)">
         <div class="tab__title">linkedin.com</div>
         <div class="tab__state" :class="{ 'tab__state--selected': tabIndex === 0 }"></div>
       </a>
-      <a class="tabs-urls__tab" @click="onClick(1)">
+      <a class="tabs-urls__tab" v-if="companyURLs.societe.length > 0" @click="onClick(1)">
         <div class="tab__title">societe.com</div>
         <div class="tab__state" :class="{ 'tab__state--selected': tabIndex === 1 }"></div>
       </a>
@@ -17,12 +17,17 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 export default {
   name: 'SelectionTabs',
   data() {
     return {
       tabIndex: 0,
     };
+  },
+  computed: {
+    ...mapState(['companyURLs']),
   },
   methods: {
     onClick(tabIndex) {
