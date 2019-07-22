@@ -1,5 +1,7 @@
 # company-scraper-client
 
+[![Build Status](https://travis-ci.com/nicolaspayot/company-scraper-client.svg?token=poc8X7Ros3wxLmbqaEpn&branch=master)](https://travis-ci.com/nicolaspayot/company-scraper-client)
+
 ## Context
 
 `company-scraper-client` is a Single Page App built with Vue.js and Vue CLI, whose purpose is to get company information from [company-scraper-server](https://github.com/nicolaspayot/company-scraper-server).
