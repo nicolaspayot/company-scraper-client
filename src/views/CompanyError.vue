@@ -1,5 +1,5 @@
 <template>
-  <Card :title="'Whoops'" :button-title="'New search'" @submit="next()">
+  <Card :title="'Whoops'" :buttonTitle="'New search'" @submit="next()">
     <div class="error">
       <h2 v-if="error.statusCode === 404">
         <i class="fas fa-search"></i>

@@ -1,5 +1,5 @@
 <template>
-  <Card :title="'Company information'" :button-title="'New search'" @submit="newSearch()">
+  <Card :title="'Company information'" :buttonTitle="'New search'" @submit="newSearch()">
     <ResultMain :company="company" />
     <ResultDetails :company="company" />
   </Card>

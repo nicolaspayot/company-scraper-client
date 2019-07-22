@@ -1,10 +1,5 @@
 <template>
-  <Card
-    :title="'Enter a company name'"
-    :button-title="'Search'"
-    :button-disabled="!company"
-    @submit="searchCompanyURLs"
-  >
+  <Card :title="'Enter a company name'" :buttonTitle="'Search'" :buttonDisabled="!company" @submit="searchCompanyURLs">
     <SearchInput v-model="company" @enter="searchCompanyURLs" />
   </Card>
 </template>

@@ -17,17 +17,15 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
-import { UPDATE_TAB_INDEX } from '../../store/mutations';
-
 export default {
   name: 'SelectionTabs',
-  computed: {
-    ...mapState(['tabIndex', 'companyURLs']),
+  props: {
+    tabIndex: Number,
+    companyURLs: Object,
   },
   methods: {
     onClick(tabIndex) {
-      this.$store.commit(UPDATE_TAB_INDEX, { tabIndex });
+      this.$emit('change', tabIndex);
     },
   },
 };
