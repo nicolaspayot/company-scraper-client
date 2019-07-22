@@ -29,7 +29,12 @@ export default {
 }
 
 .col {
-  max-width: 60%;
-  flex: 0 0 60%;
+  max-width: 95%;
+  flex: 0 0 95%;
+
+  @include breakpoint(medium) {
+    max-width: 60%;
+    flex: 0 0 60%;
+  }
 }
 </style>

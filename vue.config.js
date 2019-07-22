@@ -5,6 +5,7 @@ module.exports = {
         data: `
           @import "~@/assets/styles/_variables.scss";
           @import "~@/assets/styles/_rem.scss";
+          @import "~@/assets/styles/_breakpoints.scss";
         `,
       },
     },

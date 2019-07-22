@@ -22,11 +22,22 @@ export default {
 
 .details__row-label {
   display: inline-block;
-  width: 250px;
+  width: 180px;
+  font-size: rem(14px);
+
+  @include breakpoint(medium) {
+    width: 250px;
+    font-size: rem(16px);
+  }
 }
 
 .details__row-value {
   font-weight: 500;
+  font-size: rem(14px);
+
+  @include breakpoint(medium) {
+    font-size: rem(16px);
+  }
 }
 
 .fa-thumbtack {

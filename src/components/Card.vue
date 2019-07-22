@@ -54,7 +54,11 @@ export default {
   background-color: $primary-background-color;
   background-clip: border-box;
   box-shadow: 0 18px 35px rgba(50, 50, 93, 0.1), -1px 0 15px rgba(0, 0, 0, 0.07) !important;
-  padding: 25px;
+  padding: 20px;
+
+  @include breakpoint(medium) {
+    padding: 25px;
+  }
 }
 
 .card-header {
@@ -69,12 +73,17 @@ export default {
   text-decoration: none;
   position: absolute;
   left: 0;
+  margin-top: -35px;
   color: $input-color;
   font-weight: 500;
   line-height: 1.8;
 
   .fa-chevron-left {
     margin-right: 10px;
+  }
+
+  @include breakpoint(medium) {
+    margin-top: 0;
   }
 }
 
@@ -93,8 +102,12 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 50px;
-  padding-bottom: 20px;
+  margin-top: 15px;
+
+  @include breakpoint(medium) {
+    margin-top: 50px;
+    padding-bottom: 20px;
+  }
 }
 
 .card-action__button {

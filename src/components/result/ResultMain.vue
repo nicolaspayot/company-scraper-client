@@ -53,19 +53,38 @@ export default {
 .info__name {
   margin: 0;
   margin-bottom: 5px;
+  font-size: rem(18px);
+
+  @include breakpoint(medium) {
+    font-size: rem(24px);
+  }
 }
 
 .info__id {
   margin: 0;
-  font-size: rem(16px);
+  font-size: rem(14px);
   margin-bottom: 5px;
+
+  @include breakpoint(medium) {
+    font-size: rem(16px);
+  }
 }
 
 .info__industry {
   margin-bottom: 15px;
+  font-size: rem(14px);
+
+  @include breakpoint(medium) {
+    font-size: rem(16px);
+  }
 }
 
 .info-adress__label {
   margin-left: 10px;
+  font-size: rem(14px);
+
+  @include breakpoint(medium) {
+    font-size: rem(16px);
+  }
 }
 </style>

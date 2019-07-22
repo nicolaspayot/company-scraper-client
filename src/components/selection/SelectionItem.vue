@@ -42,22 +42,31 @@ label {
 [type='radio']:checked + label,
 [type='radio']:not(:checked) + label {
   position: relative;
-  padding-left: 40px;
+  padding-left: 20px;
   cursor: pointer;
   line-height: 20px;
   display: inline-block;
+
+  @include breakpoint(medium) {
+    padding-left: 40px;
+  }
 }
 [type='radio']:checked + label:before,
 [type='radio']:not(:checked) + label:before {
   content: '';
   position: absolute;
-  left: 0;
   top: 0;
+  left: 0;
+  margin-left: -10px;
   width: 18px;
   height: 18px;
   border: 1px solid $border-color;
   border-radius: 100%;
   background: $primary-background-color;
+
+  @include breakpoint(medium) {
+    margin-left: 0;
+  }
 }
 [type='radio']:checked + label:after,
 [type='radio']:not(:checked) + label:after {
@@ -68,9 +77,14 @@ label {
   position: absolute;
   top: 4px;
   left: 4px;
+  margin-left: -10px;
   border-radius: 100%;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
+
+  @include breakpoint(medium) {
+    margin-left: 0;
+  }
 }
 [type='radio']:not(:checked) + label:after {
   opacity: 0;
