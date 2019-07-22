@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CompanyError.vue should render no result error 1`] = `
+<card-stub
+  buttontitle="New search"
+  title="Whoops"
+>
+  <div
+    class="error"
+  >
+    <h2>
+      <i
+        class="fas fa-search"
+      />
+       
+      <span
+        class="error__txt"
+      >
+        Sorry, we couldn't find anything.
+      </span>
+    </h2>
+  </div>
+</card-stub>
+`;
+
+exports[`CompanyError.vue should render server error 1`] = `
+<card-stub
+  buttontitle="New search"
+  title="Whoops"
+>
+  <div
+    class="error"
+  >
+    <h2>
+      <i
+        class="fas fa-exclamation-triangle"
+      />
+       
+      <span
+        class="error__txt"
+      >
+        Sorry, something went wrong.
+      </span>
+    </h2>
+  </div>
+</card-stub>
+`;
