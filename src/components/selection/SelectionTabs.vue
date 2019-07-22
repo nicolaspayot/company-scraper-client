@@ -18,21 +18,16 @@
 
 <script>
 import { mapState } from 'vuex';
+import { UPDATE_TAB_INDEX } from '../../store/mutations';
 
 export default {
   name: 'SelectionTabs',
-  data() {
-    return {
-      tabIndex: 0,
-    };
-  },
   computed: {
-    ...mapState(['companyURLs']),
+    ...mapState(['tabIndex', 'companyURLs']),
   },
   methods: {
     onClick(tabIndex) {
-      this.tabIndex = tabIndex;
-      this.$emit('change', tabIndex);
+      this.$store.commit(UPDATE_TAB_INDEX, { tabIndex });
     },
   },
 };

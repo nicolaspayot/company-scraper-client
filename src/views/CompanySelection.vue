@@ -6,7 +6,7 @@
     :button-disabled="isCandidatesEmpty"
     @submit="scrapCompanyData()"
   >
-    <SelectionTabs @change="onTabChange($event)" />
+    <SelectionTabs />
     <section v-show="tabIndex === 0">
       <SelectionItem
         v-for="(url, index) of linkedinURLs"
@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapState, mapGetters } from 'vuex';
 import { SELECT_COMPANY_URL } from '../store/mutations';
 import { SCRAP_COMPANY_DATA } from '../store/actions';
 import Card from '../components/Card.vue';
@@ -45,19 +45,11 @@ export default {
     SelectionTabs,
     SelectionItem,
   },
-  data() {
-    return {
-      tabIndex: 0,
-    };
-  },
   computed: {
+    ...mapState(['tabIndex']),
     ...mapGetters(['linkedinURLs', 'societeURLs', 'isCandidatesEmpty']),
   },
   methods: {
-    onTabChange(tabIndex) {
-      this.tabIndex = tabIndex;
-    },
-
     onURLChecked({ source, index }) {
       this.$store.commit(SELECT_COMPANY_URL, { source, index });
     },

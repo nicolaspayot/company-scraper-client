@@ -3,6 +3,7 @@ import { initialState } from './state';
 export const UPDATE_QUERY = 'UPDATE_QUERY';
 export const START_LOADING = 'START_LOADING';
 export const UPDATE_COMPANY_URLS = 'UPDATE_COMPANY_URLS';
+export const UPDATE_TAB_INDEX = 'UPDATE_TAB_INDEX';
 export const SELECT_COMPANY_URL = 'SELECT_COMPANY_URL';
 export const UPDATE_COMPANY = 'UPDATE_COMPANY';
 export const RESET = 'RESET';
@@ -20,9 +21,14 @@ export default {
 
   [UPDATE_COMPANY_URLS](state, { companyURLs }) {
     state.companyURLs = companyURLs;
+    state.tabIndex = state.companyURLs.linkedin.length === 0 ? 1 : 0;
     state.candidates = {};
     state.company = {};
     state.loading = false;
+  },
+
+  [UPDATE_TAB_INDEX](state, { tabIndex }) {
+    state.tabIndex = tabIndex;
   },
 
   [SELECT_COMPANY_URL](state, { source, index }) {
