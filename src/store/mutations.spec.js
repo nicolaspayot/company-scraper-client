@@ -28,7 +28,7 @@ describe('mutations', () => {
   });
 
   it('should start loading', () => {
-    const state = { loading: false, error: { message: 'Woops' } };
+    const state = { loading: false, error: { message: 'Whoops' } };
     mutations[START_LOADING](state);
     expect(state).toEqual({
       loading: true,
@@ -131,7 +131,7 @@ describe('mutations', () => {
     const state = {
       query: 'foo',
       loading: true,
-      error: { message: 'Woops!' },
+      error: { message: 'Whoops!' },
       companyURLs: {
         linkedin: linkedinURLs,
         societe: societeURLs,
@@ -152,7 +152,7 @@ describe('mutations', () => {
 
   it('should set error state', () => {
     const state = { error: null, loading: true };
-    const error = { message: 'Woops!' };
+    const error = { message: 'Whoops!' };
     mutations[ERROR](state, { error });
     expect(state).toEqual({ error, loading: false });
   });
